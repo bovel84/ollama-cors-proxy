@@ -1,6 +1,6 @@
 {
   "functions": {
-    "api/proxy.js": {
+    "api/chat.js": {
       "maxDuration": 60
     }
   }
