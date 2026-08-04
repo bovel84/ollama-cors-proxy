@@ -1,15 +1,22 @@
 const ALLOWED_ORIGIN = 'https://excel.kinaia.app';
 
-function setCors(res) {
+function setCors(req, res) {
+  const requestedHeaders = req.headers['access-control-request-headers'];
+
   res.setHeader('Access-Control-Allow-Origin', ALLOWED_ORIGIN);
-  res.setHeader('Vary', 'Origin');
+  res.setHeader('Vary', 'Origin, Access-Control-Request-Headers');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Authorization, Content-Type');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    requestedHeaders ||
+      'Authorization, Content-Type, X-Stainless-Arch, X-Stainless-Lang, X-Stainless-OS, X-Stainless-Package-Version, X-Stainless-Retry-Count, X-Stainless-Runtime, X-Stainless-Runtime-Version, OpenAI-Organization, OpenAI-Project'
+  );
   res.setHeader('Access-Control-Max-Age', '86400');
+  res.setHeader('Cache-Control', 'no-store');
 }
 
 export default async function handler(req, res) {
-  setCors(res);
+  setCors(req, res);
 
   if (req.method === 'OPTIONS') {
     return res.status(204).end();
