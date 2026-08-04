@@ -6,6 +6,12 @@
     "api/v1/models.js": { "maxDuration": 30 }
   },
   "rewrites": [
-    { "source": "/", "destination": "/api" }
+    { "source": "/", "destination": "/api" },
+    { "source": "/v1/chat/completions", "destination": "/api/v1/chat/completions" },
+    { "source": "/chat/completions", "destination": "/api/v1/chat/completions" },
+    { "source": "/v1/responses", "destination": "/api/v1/responses" },
+    { "source": "/responses", "destination": "/api/v1/responses" },
+    { "source": "/v1/models", "destination": "/api/v1/models" },
+    { "source": "/models", "destination": "/api/v1/models" }
   ]
 }
