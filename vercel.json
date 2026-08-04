@@ -1,7 +1,11 @@
 {
   "functions": {
-    "api/chat.js": {
-      "maxDuration": 60
-    }
-  }
+    "api/chat.js": { "maxDuration": 60 },
+    "api/v1/chat/completions.js": { "maxDuration": 60 },
+    "api/v1/responses.js": { "maxDuration": 60 },
+    "api/v1/models.js": { "maxDuration": 30 }
+  },
+  "rewrites": [
+    { "source": "/", "destination": "/api" }
+  ]
 }
