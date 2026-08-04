@@ -3,7 +3,8 @@
     "api/chat.js": { "maxDuration": 60 },
     "api/v1/chat/completions.js": { "maxDuration": 60 },
     "api/v1/responses.js": { "maxDuration": 60 },
-    "api/v1/models.js": { "maxDuration": 30 }
+    "api/v1/models.js": { "maxDuration": 30 },
+    "api/v1/models/[model].js": { "maxDuration": 30 }
   },
   "rewrites": [
     { "source": "/", "destination": "/api" },
@@ -12,6 +13,8 @@
     { "source": "/v1/responses", "destination": "/api/v1/responses" },
     { "source": "/responses", "destination": "/api/v1/responses" },
     { "source": "/v1/models", "destination": "/api/v1/models" },
-    { "source": "/models", "destination": "/api/v1/models" }
+    { "source": "/models", "destination": "/api/v1/models" },
+    { "source": "/v1/models/:model", "destination": "/api/v1/models/:model" },
+    { "source": "/models/:model", "destination": "/api/v1/models/:model" }
   ]
 }
